@@ -5,5 +5,12 @@ INSERT INTO ROLLBACK_BACKUP (pk_value,table_name)
 SELECT e.empno,'EMP' FROM emp e
 WHERE e.sal > 1000; 
 
+commit;
 
 DROP TABLE rollback_backup;
+
+
+UPDATE emp e SET e.sal = e.sal-100 
+WHERE e.empno in (SELECT  pk_value 
+                  FROM rollback_backup 
+                  WHERE table_name = 'EMP');
