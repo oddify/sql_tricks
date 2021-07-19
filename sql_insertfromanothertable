@@ -1,0 +1,9 @@
+CREATE TABLE ROLLBACK_BACKUP(pk_value NUMBER(14), table_name Varchar(30));
+
+
+INSERT INTO ROLLBACK_BACKUP (pk_value,table_name)
+SELECT e.empno,'EMP' FROM emp e
+WHERE e.sal > 1000; 
+
+
+DROP TABLE rollback_backup;
