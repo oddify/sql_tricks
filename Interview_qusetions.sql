@@ -12,6 +12,11 @@ Insert into products VALUES(3,'Glow',6,'neon_tubes');
 Insert into products VALUES(3,'Glow',7,'neon_bulbs');
 Insert into products VALUES(3,'Glow',8,'glow_sticks');
 
+Insert into products VALUES(10,'V_POWER',100,'refineed_oil');
+Insert into products VALUES(10,'V_POWER',101,'noodeles');
+
+Insert into products VALUES(11,'woodpik',102,'Keychains');
+Insert into products VALUES(11,'woodpik',103,'furniture');
 
 select * from products
 --truncate table products;
@@ -85,6 +90,7 @@ FROM
             Pre-defined exceptions are frequent errors that have already been defined. NO DATA FOUND is an example.
             Undefined exceptions are errors that don’t have a name assigned to them.
             User-defined exceptions are handled by the user’s own code.
+            
         3.Mention a few predefined exceptions?
             The following are some examples of predefined exceptions:
 
@@ -92,6 +98,7 @@ FROM
                 TOO MANY ROWS: A single row SELECT statement that returns many rows.
                 INVALID CURSOR: An incorrect cursor operation was performed.
                 ZERO DIVIDE: Attempt at zero division.
+                
         4.What is a left outer join? example?
             In an outer join, unmatched rows in one or both tables can be returned. LEFT JOIN returns only unmatched rows on left table
             
@@ -113,5 +120,10 @@ FROM
             SQL% ROWCOUNT 
             SQL% ISOPEN
             
-          
+        PRACTICAL
+        1. join the 2 tables to get the name of company year and yearly sales quantity?
+        2. select products which are not in hte yearly sales query. (using left join, or any other way).
+        3. Find for each product which year had the highest sales (in that i want you should select company_name, product_id, year and year_sales_qty.)
+         
+        
     */
