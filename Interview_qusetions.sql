@@ -98,7 +98,9 @@ FROM
                 TOO MANY ROWS: A single row SELECT statement that returns many rows.
                 INVALID CURSOR: An incorrect cursor operation was performed.
                 ZERO DIVIDE: Attempt at zero division.
-                
+             For more exception types -
+             https://docs.oracle.com/cd/B10501_01/appdev.920/a96624/07_errs.htm   
+             
         4.What is a left outer join? example?
             In an outer join, unmatched rows in one or both tables can be returned. LEFT JOIN returns only unmatched rows on left table
             
@@ -112,18 +114,66 @@ FROM
         6.Why do we use Index in a table?
             In a table, we use indexes to allow quick access to rows. For procedures that return a small percentage of a table’s rows, indexes allow faster access to data.
             
-         7.Which cursor attributes are the result of a DML statement saved when it is executed?
+        7.In what case sould we use indexes and when should we avoice?
+            Avoide
+            Indexes should not be used on tables containing few records.
+            Tables that have frequent, large batch updates or insert operations.
+            Indexes should not be used on columns that contain a high number of NULL values.
+            Indexes should not be used on the columns that are frequently manipulated.
+         
+        8.What are the type of indexes?
+            Logical types 
+                Unique or Non-Unique
+                Composite
+                Function-Based indexes
+            Physical types
+                B – Tree Index
+                Compressed B-Tree
+                Bitmap Indexes
+                Reverse-Key Indexes
+                Index Organized Tables (IOT) - Rather than having a row’s rowid as the second element of the index entry, the actual data row is stored in the B-tree index. 
+                
+                
+        9.Which cursor attributes are the result of a DML statement saved when it is executed?
             The statement’s result is saved in four cursor attributes. The four attributes are: 
 
             SQL% FOUND 
             SQL% NOTFOUND 
             SQL% ROWCOUNT 
             SQL% ISOPEN
-            
+         
         PRACTICAL
         1. join the 2 tables to get the name of company year and yearly sales quantity?
         2. select products which are not in hte yearly sales query. (using left join, or any other way).
         3. Find for each product which year had the highest sales (in that i want you should select company_name, product_id, year and year_sales_qty.)
-         
+        4. How will find distinct values in a table? (Ans with use of distinct keyword, by group by selecting only that col, self union)
+        5. Analytical functions
+            Dense Rank
+            FIRST_VALUE
+            LAST_VALUE
+            LEAD - It is a type of analytic function that allows us to access a following row from the current row based on an offset value without using self join.
+            LAG  - opposit of lead
+            Nth Value - It is an analytic function and as the name suggests that it returns the Nth value among set of values.
+            NTILE -It is an analytical function that divides an ordered set into buckets and assigns a bucket number to each row.
+            ROW_NUMBER -It is an analytical function and unlike NTILE this function assigns a unique sequential number to each row of the result set.
+            RANK - 
+            CUME_DIST - Calculates the cumulative distribution of a value in a group of values.
+            PERCENT_RANK() The PERCENT_RANK function in SQL Server calculates the relative rank SQL Percentile of each row. 
+          
+        
+           
+        
+        Dense Rank
+            SELECT
+                p.*,
+                DENSE_RANK()
+                OVER(
+                    ORDER BY
+                        company_name
+                ) company_rank
+            FROM
+                products p;
+                
+        
         
     */
